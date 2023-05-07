@@ -8,5 +8,15 @@ import pro.sky.hwm2_4.InfoService;
 
 @RestController
 public class PersonController {
+    @GetMapping("/person")
+    public String info() {
+        String str = null;
+        try {
+            InfoService.logIn("my_gmailcom", "123478", "1234");
 
+        } catch (WrongLoginExeption | WrongPasswordExeption e) {
+            str = " " + e.getMessage();
+        }
+        return "" + str + " ";
+    }
 }
